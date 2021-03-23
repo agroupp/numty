@@ -1,10 +1,39 @@
 {
-  
-  
   "version": 2,
-  
+  "generators": {
+    "@nrwl/angular": {
+      "application": {
+        "strict": true,
+        "style": "scss",
+        "prefix": "nt",
+        "linter": "eslint",
+        "unitTestRunner": "jest",
+        "e2eTestRunner": "cypress"
+      },
+      "library": {
+        "strict": true,
+        "style": "scss",
+        "prefix": "nt",
+        "linter": "eslint",
+        "unitTestRunner": "jest",
+        "publishable": true
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress",
+      "strict": true
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest",
+      "strict": true
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
   "projects": {},
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nrwl/angular"
   }
 }

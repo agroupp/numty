@@ -24,7 +24,9 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "release:first": "npm run release -- --first-release",
+    "release": "standard-version"
   },
   "private": true,
   "devDependencies": {
@@ -38,6 +40,7 @@
     "git-cz": "^4.7.6",
     "husky": "^5.2.0",
     "prettier": "2.2.1",
+    "standard-version": "^9.1.1",
     "ts-node": "~9.1.1",
     "typescript": "~4.0.3"
   },
