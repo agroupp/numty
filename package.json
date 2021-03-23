@@ -9,6 +9,7 @@
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
     "e2e": "nx e2e",
+    "commit": "git-cz",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",
@@ -27,13 +28,34 @@
   },
   "private": true,
   "devDependencies": {
+    "@nrwl/angular": "^11.5.2",
     "@nrwl/cli": "11.5.2",
     "@nrwl/tao": "11.5.2",
     "@nrwl/workspace": "11.5.2",
     "@types/node": "14.14.33",
+    "cz-conventional-changelog": "^3.3.0",
     "dotenv": "8.2.0",
+    "git-cz": "^4.7.6",
+    "husky": "^5.2.0",
     "prettier": "2.2.1",
     "ts-node": "~9.1.1",
     "typescript": "~4.0.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,scss,ts,html,component.html}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged && npm run affected:lint"
+    }
   }
 }
